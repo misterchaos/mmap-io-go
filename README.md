@@ -22,7 +22,7 @@ Create a reader from a filepath
 ```go
 reader, err := NewReader(testFile)
 if err != nil{
-return
+	return
 }
 defer reader.Close()
 ```
@@ -33,14 +33,14 @@ Read data into slice
 b := make([]byte, 20)
 
 if n, err := reader.Read(b); err == nil {
-fmt.Printf("read " + strconv.Itoa(n) + " bytes data from file" + " : " + string(b))
+	fmt.Printf("read " + strconv.Itoa(n) + " bytes data from file" + " : " + string(b))
 }
 ```
 
 The output of the above code is as follows
 
 ```bash
-welcome to mmap io !
+Welcome to mmap io !
 ```
 
 ### Read the whole file at once
@@ -49,17 +49,17 @@ You can use `ReadAll()` to read it at once
 
 ```go
 if reader, err := NewReader(testFile); err == nil {
-defer reader.Close()
-if b, err := reader.ReadAll(); err == nil {
-fmt.Printf(string(b))
-}
+	defer reader.Close()
+	if b, err := reader.ReadAll(); err == nil {
+		fmt.Printf(string(b))	
+	}
 }
 ```
 
 The output of the above code is as follows
 
 ```shell
-welcome to mmap io ! by Yuchao Huang @misterchaos
+Welcome to mmap io ! by Yuchao Huang @misterchaos
  _          _ _                                         _
 | |__   ___| | | ___    _ __ ___  _ __ ___   __ _ _ __ (_) ___
 | '_ \ / _ \ | |/ _ \  | '_ ` _ \| '_ ` _ \ / _` | '_ \| |/ _ \
